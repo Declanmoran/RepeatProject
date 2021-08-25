@@ -1,0 +1,1 @@
+javac -d /tmp/ src/ie/gmit/mypackage/*.java 2>/dev/null && gp preview $(gp url 6080) && echo "APP RUNNING - To STOP click inside this terminal window then hold the Ctrl button and press c" && java -cp /tmp/ ie.gmit.mypackage.Main 2>/dev/null
