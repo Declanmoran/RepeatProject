@@ -69,13 +69,9 @@ public class PlayerManager implements Serializable {
 
 			sb.append(String.format("%-20s%-20s%-20s%-20s%-20s\n", "Name", "Club", "Nationality", "Age"));
 			sb.append(String.format("===============================================================\n"));
-
-			// sb.append("Name\t\t\t\t\tClub\t\t\tNationality\t\t\tAge\n");
-			// sb.append("----------------------------------------------------------\n");
+");
 			for (Player player : this.playerList) {
 				sb.append(counter + ": " + player.findAllFieldValuesInCSVFormat().replace(",", "\t\t") + "\n");
-				// sb.append(String.format("%-20s%-20\n",counter,
-				// player.findAllFieldValuesInCSVFormat().replace(",", "\t\t") + "\n"));
 				counter++;
 			}
 			
@@ -96,9 +92,7 @@ public class PlayerManager implements Serializable {
 				bufferedPlayerCSVFileReader.readLine();
 
 				while ((bufferData = bufferedPlayerCSVFileReader.readLine()) != null) {
-					// System.out.println(bufferData);
 					String[] playerFieldValues = bufferData.split(",");
-					// System.out.println(Arrays.toString(playerFieldValues));
 					Player newPlayer = new Player(playerFieldValues[0], playerFieldValues[1], playerFieldValues[2],
 							Integer.parseInt(playerFieldValues[3]));
 					this.addPlayer(newPlayer); // Add player to the playerList
@@ -134,8 +128,6 @@ public class PlayerManager implements Serializable {
 				for (Player playerObject : playerList) {
 					bufferedplayerFileWriterStream.write(playerObject.getPlayerName() + "," + playerObject.getPlayerName()
 							+ "," + playerObject.getclub() + "," + playerObject.getage() + "\n");
-					// bufferedplayerFileWriterStream.write(playerObject.findAllFieldValuesInCSVFormat()
-					// + "\n");
 					bufferedplayerFileWriterStream.flush(); // Flushes buffer which transfers buffer data to the file
 				}
 				System.out.println("Saved Players List to CSV file successfully!");
