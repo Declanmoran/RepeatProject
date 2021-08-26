@@ -81,16 +81,14 @@ PlayerManager sm = new PlayerManager(); // Used for managing players
 		gridPane1.add(taMyOutput, 0, 8, 5, 1);
 		
 		// Adding events to buttons
-		// Load Students DB button
+		// Load Players DB button
 		btnLoadPlayerList.setOnAction(e -> {
 
 			if (tfLoadPlayerFilePath.getText().trim().equals("")) { // If text field is empty
 				taMyOutput.setText("Please enter path to Player file.\n");
 			} else {
-				//File playerCSVFile = new File(".\\resources\\player.csv");
+				
 				File playerObjectsFile = new File(tfLoadPlayerFilePath.getText());
-				//sm.loadPlayerFromCSVFile(playerCSVFile);
-				//sm.savePlayerManagerObjectToFile(playerObjectsFile);
 				sm = sm.loadPlayerManagerObjectFromFile(playerObjectsFile);
 				if (sm == null) {
 					sm = new PlayerManager();
@@ -99,8 +97,6 @@ PlayerManager sm = new PlayerManager(); // Used for managing players
 					tfLoadPlayerFilePath.clear();
 				} else {
 					taMyOutput.setText("DB loaded successfully from " + tfLoadPlayerFilePath.getText());
-					//taMyOutput.appendText("\nTotal Players loaded: " + Integer.toString(sm.findTotalPlayers()) + "\n");
-					//taMyOutput.appendText("\n" + sm.listAllStudnets());
 					tfLoadPlayerFilePath.clear();
 				}
 			}
@@ -205,10 +201,8 @@ PlayerManager sm = new PlayerManager(); // Used for managing players
 		if (noOfCmdLineArgs > 0) {
 			// Get command line arguments as String
 			cmdLineArgs = getParameters().getRaw().toString();
-			//System.out.println(cmdLineArgs);
 			// Remove unwanted characters ([ and ] and ,)from string
 			cmdLineArgs = cmdLineArgs.replaceAll("\\[|\\]|\\,", "");
-			//System.out.println(cmdLineArgs);
 			primaryStage.setTitle(cmdLineArgs);
 		} else {
 			// Default value
@@ -228,5 +222,5 @@ PlayerManager sm = new PlayerManager(); // Used for managing players
 		launch(args);
 	}
 	
-}
+}//End Main method
 
